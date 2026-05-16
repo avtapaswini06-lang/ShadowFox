@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Venkata Tapaswini Anumalasetty | Portfolio</title>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Icons -->
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+    body{
+      font-family:'Poppins',sans-serif;
+      background:#0f172a;
+      color:#f8fafc;
+      overflow-x:hidden;
+    }
+    body::before{
+      content:'';
+      position:fixed;
+      width:500px;
+      height:500px;
+      background:#1e3a8a;
+      filter:blur(170px);
+      top:-120px;
+      left:-120px;
+      opacity:0.25;
+      z-index:-1;
+      animation:move1 12s infinite alternate;
+    }
+    body::after{
+      content:'';
+      position:fixed;
+      width:450px;
+      height:450px;
+      background:#0f766e;
+      filter:blur(170px);
+      bottom:-120px;
+      right:-120px;
+      opacity:0.22;
+      z-index:-1;
+      animation:move2 12s infinite alternate;
+    }
+    @keyframes move1{
+      100%{
+        transform:translate(100px,100px);
+      }
+    }
+    @keyframes move2{
+      100%{
+        transform:translate(-100px,-100px);
+      }
+    }
+    nav{
+      width:100%;
+      position:fixed;
+      top:0;
+      z-index:1000;
+      backdrop-filter:blur(14px);
+      background:rgba(15,23,42,0.75);
+      border-bottom:1px solid rgba(255,255,255,0.08);
+    }
+    .navbar{
+      max-width:1200px;
+      margin:auto;
+      padding:18px 20px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+    .logo{
+      font-size:1.5rem;
+      font-weight:700;
+      color:#ffffff;
+    }
+    .nav-links{
+      display:flex;
+      gap:25px;
+    }
+    .nav-links a{
+      color:#e2e8f0;
+      text-decoration:none;
+      transition:0.3s;
+      position:relative;
+    }
+    .nav-links a::after{
+      content:'';
+      position:absolute;
+      width:0%;
+      height:2px;
+      left:0;
+      bottom:-5px;
+      background:#38bdf8;
+      transition:0.3s;
+    }
+    .nav-links a:hover::after{
+      width:100%;
+    }
+    .nav-links a:hover{
+      color:#38bdf8;
+    }
+    header{
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      padding:20px;
+    }
+    .hero{
+      max-width:900px;
+    }
+    .profile-img{
+      width:170px;
+      height:170px;
+      border-radius:50%;
+      border:4px solid rgba(255,255,255,0.15);
+      object-fit:cover;
+      margin-bottom:25px;
+      animation:float 4s ease-in-out infinite;
+      box-shadow:0 0 35px rgba(56,189,248,0.25);
+    }
+    @keyframes float{
+      0%{transform:translateY(0);}
+      50%{transform:translateY(-12px);}
+      100%{transform:translateY(0);}
+    }
+    header h1{
+      font-size:4rem;
+      font-weight:700;
+      background:linear-gradient(to right,#38bdf8,#14b8a6);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+    #typing{
+      margin-top:15px;
+      font-size:1.4rem;
+      color:#cbd5e1;
+      min-height:40px;
+    }
+    .hero p{
+      margin-top:20px;
+      color:#cbd5e1;
+      font-size:1.1rem;
+    }
+    .hero-buttons{
+      margin-top:35px;
+      display:flex;
+      justify-content:center;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+    .btn{
+      padding:14px 28px;
+      border-radius:30px;
+      text-decoration:none;
+      font-weight:600;
+      transition:0.4s;
+    }
+    .primary-btn{
+      background:linear-gradient(135deg,#0ea5e9,#14b8a6);
+      color:white;
+    }
+    .secondary-btn{
+      border:2px solid #38bdf8;
+      color:white;
+    }
+    .btn:hover{
+      transform:translateY(-5px) scale(1.05);
+      box-shadow:0 10px 30px rgba(127, 81, 233, 0.25);
+    }
+    .social-icons{
+      margin-top:30px;
+      display:flex;
+      justify-content:center;
+      gap:20px;
+    }
+    .social-icons a{
+      width:50px;
+      height:50px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:50%;
+      background:rgba(255,255,255,0.06);
+      color:white;
+      font-size:1.2rem;
+      transition:0.3s;
+      text-decoration:none;
+      border:1px solid rgba(255,255,255,0.06);
+    }
+    .social-icons a:hover{
+      background:#0ea5e9;
+      transform:translateY(-5px);
+      box-shadow:0 0 20px hsla(180, 84%, 24%, 0.953);
+    }
+    section{
+      padding:100px 10%;
+    }
+    .section-title{
+      text-align:center;
+      font-size:2.5rem;
+      margin-bottom:60px;
+      color:#2cf881;
+    }
+    .card{
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(255,255,255,0.06);
+      backdrop-filter:blur(14px);
+      padding:30px;
+      border-radius:25px;
+      transition:0.4s;
+      box-shadow:0 10px 30px rgba(0,0,0,0.25);
+    }
+
+    .card:hover{
+      transform:translateY(-10px);
+      box-shadow:0 15px 40px rgba(56,189,248,0.18);
+    }
+
+    /* Grids */
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:30px;
+    }
+
+    /* Skills */
+    .skill{
+      text-align:center;
+      padding:20px;
+      border-radius:18px;
+      background:rgba(255,255,255,0.04);
+      transition:0.3s;
+      border:1px solid rgba(255,255,255,0.05);
+    }
+
+    .skill:hover{
+      background:#0f172a;
+      border:1px solid #38bdf8;
+      transform:translateY(-6px) scale(1.03);
+      box-shadow:0 10px 25px rgba(56,189,248,0.18);
+    }
+
+    .skill i{
+      font-size:2rem;
+      margin-bottom:12px;
+      color:#38bdf8;
+    }
+
+    /* Stats */
+    .stats{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:25px;
+      margin-top:50px;
+    }
+
+    .stat-card{
+      text-align:center;
+      padding:30px;
+      border-radius:20px;
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(255,255,255,0.05);
+    }
+
+    .stat-card h3{
+      font-size:2rem;
+      color:#38bdf8;
+    }
+
+    /* Certifications */
+    .cert-card img{
+      width:100%;
+      height:180px;
+      object-fit:cover;
+      border-radius:15px;
+      margin-bottom:15px;
+    }
+
+    .cert-btn{
+      display:inline-block;
+      margin-top:15px;
+      padding:12px 22px;
+      border-radius:25px;
+      background:linear-gradient(135deg,#f87042,#fc935a);
+      color:white;
+      text-decoration:none;
+      font-weight:600;
+      transition:0.3s;
+    }
+
+    .cert-btn:hover{
+      transform:scale(1.05);
+      box-shadow:0 10px 20px rgba(20,184,166,0.25);
+    }
+
+    /* Contact */
+    .contact-info p{
+      margin-bottom:18px;
+      font-size:1.1rem;
+      color:#e2e8f0;
+    }
+
+    .contact-info a{
+      color:#55c9f3;
+      text-decoration:none;
+    }
+
+    /* Footer */
+    footer{
+      text-align:center;
+      padding:30px;
+      background:#020617;
+      border-top:1px solid rgba(255,255,255,0.08);
+      color:#cbd5e1;
+    }
+
+    /* Scroll Animation */
+    .fade{
+      opacity:0;
+      transform:translateY(40px);
+      transition:1s;
+    }
+
+    .show{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    /* Responsive */
+    @media(max-width:768px){
+
+      header h1{
+        font-size:2.7rem;
+      }
+
+      .nav-links{
+        display:none;
+      }
+
+      .hero-buttons{
+        flex-direction:column;
+      }
+
+      section{
+        padding:80px 7%;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+<!-- Navbar -->
+<nav>
+  <div class="navbar">
+    <div class="logo">
+      <h3>Venkata Tapaswini Anumalasetty</h3></div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#internship">Internship</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+<!-- Hero Section -->
+<header>
+  <div class="hero">
+    <img src="https://cdn-icons-png.flaticon.com/512/6997/6997662.png"
+    class="profile-img">
+    <h1>Venkata Tapaswini Anumalasetty</h1>
+    <p id="typing"></p>
+    <p>
+      Enthusiastic about developing innovative and user-friendly websites using modern web technologies and creative design principles.
+    </p>
+    <div class="hero-buttons">
+      <a href="#certifications" class="btn primary-btn">
+        View Certifications
+      </a>
+      <a href="https://drive.google.com/file/d/1CKogj0gxh0XGnyPqc5GdowQQ4S_pAfi9/view?usp=drivesdk"
+      target="_blank"
+      class="btn secondary-btn">
+        View Resume
+      </a>
+    </div>
+    <!-- Social Icons -->
+    <div class="social-icons">
+      <a href="https://github.com/avtapaswini06-lang" target="_blank">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/venkata-tapaswini-anumalasetty-367b45390"
+      target="_blank">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="mailto:avtapaswini06@gmail.com">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </div>
+  </div>
+</header>
+<!-- About -->
+<section id="about" class="fade">
+  <h2 class="section-title">About Me</h2>
+  <div class="card">
+    <p>
+      I am Venkata Tapaswini Anumalasetty, currently pursuing B.Tech in Computer Science Engineering at Geethanjali Institute of Science and Technology with a CGPA of 9.35.
+    </p>
+    <br>
+    <p>
+      Passionate about developing modern and responsive websites while exploring emerging web technologies. Constantly working to enhance my technical expertise, creativity, leadership qualities, and problem-solving skills.
+    </p>
+    <br>
+    <p>
+      I am currently pursuing a Virtual Internship in Web Development at ShadowFox, where I am gaining practical experience in frontend development and responsive web design.
+    </p>
+  </div>
+  <!-- Stats -->
+  <div class="stats">
+    <div class="stat-card">
+      <h3>9.35</h3>
+      <p>CGPA</p>
+    </div>
+    <div class="stat-card">
+      <h3>4+</h3>
+      <p>Certifications</p>
+    </div>
+    <div class="stat-card">
+      <h3>1</h3>
+      <p>Internship</p>
+    </div>
+    <div class="stat-card">
+      <h3>6+</h3>
+      <p>Technical Skills</p>
+    </div>
+  </div>
+</section>
+<!-- Education -->
+<section id="education" class="fade">
+  <h2 class="section-title">Education</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>B.Tech – CSE</h3>
+      <p>Geethanjali Institute of Science and Technology</p>
+      <p>2024 – 2028</p>
+      <p><strong>CGPA:</strong> 9.35</p>
+    </div>
+    <div class="card">
+      <h3>Intermediate</h3>
+      <p>Krishna Chaithanya Junior College</p>
+      <p>2022 – 2024</p>
+      <p><strong>CGPA:</strong> 9.6</p>
+    </div>
+    <div class="card">
+      <h3>SSC</h3>
+      <p>Narayana English Medium High School</p>
+      <p>2021 – 2022</p>
+      <p><strong>CGPA:</strong> 9.2</p>
+    </div>
+  </div>
+</section>
+<!-- Skills -->
+<section id="skills" class="fade">
+  <h2 class="section-title">Technical Skills</h2>
+  <div class="grid">
+    <div class="skill">
+      <i class="fab fa-html5"></i>
+      <h3>HTML</h3>
+    </div>
+    <div class="skill">
+      <i class="fab fa-css3-alt"></i>
+      <h3>CSS</h3>
+    </div>
+    <div class="skill">
+      <i class="fab fa-js"></i>
+      <h3>JavaScript</h3>
+    </div>
+    <div class="skill">
+      <i class="fab fa-java"></i>
+      <h3>C Programming</h3>
+    </div>
+    <div class="skill">
+      <i class="fab fa-python"></i>
+      <h3>Python</h3>
+    </div>
+    <div class="skill">
+      <i class="fas fa-code"></i>
+      <h3>Java</h3>
+    </div>
+  </div>
+</section>
+<!-- Certifications -->
+<section id="certifications" class="fade">
+  <h2 class="section-title">Certifications</h2>
+
+  <div class="grid">
+    <div class="card cert-card">
+      <img src="https://drive.google.com/thumbnail?id=1I6S0PV76cGlBp0-jK4hjTDXMIU0Bz1iF">
+      <h3>C Programming</h3>
+      <p>Infosys Springboard</p>
+      <a href="https://drive.google.com/file/d/1I6S0PV76cGlBp0-jK4hjTDXMIU0Bz1iF/view?usp=drivesdk"
+      target="_blank"
+      class="cert-btn">
+      View Certificate
+      </a>
+    </div>
+    <div class="card cert-card">
+      <img src="https://drive.google.com/thumbnail?id=1cULdXU4w4VDiM3nsFumNxUBwgpHfi-ea">
+      <h3>Python</h3>
+      <p>Edu Pyramids</p>
+      <a href="https://drive.google.com/file/d/1cULdXU4w4VDiM3nsFumNxUBwgpHfi-ea/view?usp=drivesdk"
+      target="_blank"
+      class="cert-btn">
+      View Certificate
+      </a>
+    </div>
+    <div class="card cert-card">
+      <img src="https://drive.google.com/thumbnail?id=1ysBpMeMCOaKaJhTjEjxzr82p2vcEsI2s">
+      <h3>Machine Learning Foundation Certification</h3>
+      <p>Infosys Springboard</p>
+      <a href="https://drive.google.com/file/d/1ysBpMeMCOaKaJhTjEjxzr82p2vcEsI2s/view?usp=drivesdk"
+      target="_blank"
+      class="cert-btn">
+      View Certificate
+      </a>
+    </div>
+    <div class="card cert-card">
+      <img src="https://drive.google.com/thumbnail?id=1ewZaKQiCwcajB0T9wdkh-lz1-t--ygJY">
+      <h3>Deloitte Data Analytics Job Simulation</h3>
+      <p>Deloitte</p>
+      <a href="https://drive.google.com/file/d/1ewZaKQiCwcajB0T9wdkh-lz1-t--ygJY/view?usp=drivesdk"
+      target="_blank"
+      class="cert-btn">
+      View Certificate
+      </a>
+    </div>
+</section>
+<!-- Internship -->
+<section id="internship" class="fade">
+  <h2 class="section-title">Internship</h2>
+  <div class="card">
+    <h3>Web Development Virtual Internship – ShadowFox</h3>
+    <br>
+    <p>
+      Currently undertaking a Virtual Internship in Web Development at ShadowFox, where I am enhancing my skills in responsive web design, frontend technologies, and modern website development practices.
+    </p>
+    <br>
+    <a href="https://drive.google.com/file/d/1zaT-MN7oB_BRt24ybFjo3Vx-tqblhylK/view?usp=drivesdk"
+    target="_blank"
+    class="cert-btn">
+      View Offer Letter
+    </a>
+  </div>
+</section>
+<!-- Contact -->
+<section id="contact" class="fade">
+  <h2 class="section-title">Contact</h2>
+  <div class="card contact-info">
+    <p>
+      <i class="fas fa-envelope"></i>
+      Email:
+      <a href="mailto:avtapaswini06@gmail.com">
+        avtapaswini06@gmail.com
+      </a>
+    </p>
+    <p>
+      <i class="fab fa-linkedin"></i>
+      LinkedIn:
+      <a href="https://www.linkedin.com/in/venkata-tapaswini-anumalasetty-367b45390"
+      target="_blank">
+        View Profile
+      </a>
+    </p>
+  </div>
+</section>
+<!-- Footer -->
+<footer>
+  <p>© 2026 Venkata Tapaswini Anumalasetty | All Rights Reserved</p>
+</footer>
+<!-- JavaScript -->
+<script>
+  // Typing Effect
+  const texts = [
+    "Web Developer",
+    "UI/UX Web Designer",
+    "Frontend Developer",
+    "Technology Explorer"
+];
+  let speed = 100;
+  let textIndex = 0;
+  let charIndex = 0;
+  const typingElement = document.getElementById("typing");
+  function type(){
+    if(charIndex < texts[textIndex].length){
+      typingElement.innerHTML += texts[textIndex].charAt(charIndex);
+      charIndex++;
+      setTimeout(type,speed);
+    }
+    else{
+      setTimeout(erase,1500);
+    }
+  }
+  function erase(){
+    if(charIndex > 0){
+      typingElement.innerHTML =
+      texts[textIndex].substring(0,charIndex-1);
+      charIndex--;
+      setTimeout(erase,50);
+    }
+    else{
+      textIndex++;
+      if(textIndex >= texts.length)
+      textIndex = 0;
+      setTimeout(type,500);
+    }
+  }
+  window.onload = type;
+  // Scroll Reveal
+  const fadeElements = document.querySelectorAll('.fade');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('show');
+      }
+    });
+  });
+  fadeElements.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
